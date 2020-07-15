@@ -1,3 +1,4 @@
+import { TwillioService } from './../../shared/services/twillio/twillio-service.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,8 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  channelName="hello";
+  constructor(public twillio: TwillioService)
+  {
 
-  constructor() { }
+  }
 
   ngOnInit(): void {
   }
