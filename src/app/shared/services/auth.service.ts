@@ -4,14 +4,28 @@ import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from "@angular/router";
 import { User } from './user';
+import { env } from 'process';
+//import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   userData: any;// We will be saving user Data here
+  private serviceBase: string = env.serverBaseUrl;// To be added
+  // authenticate(username: string) {
+  //   return this.http.get(`${this.serviceBase}/token/${username}`);
+  // }
+
+  // refreshToken() {
+  //   this.authenticate(localStorage.getItem('twackUsername')).subscribe( (auth: any) => {
+  //     localStorage.setItem('twackToken', auth.token);
+  //   });
+  // }
+
   constructor
   (
+    //public http: HttpClient,
     public afs:AngularFirestore,
     public afAuth: AngularFireAuth,
     public router: Router,
